@@ -3,6 +3,24 @@ k8s Cluster Set Up guide with kubeadm and calico
 
 # Budget Friendly Kubernetes Cluster Setup with Kubeadm and Calico for StartUps and SMEs.
 
+
+𝐇𝐞𝐫𝐞’𝐬 𝐭𝐡𝐞 𝐯𝐢𝐛𝐞:
+Lean Setup: Launched Ubuntu VMs in a 10.0.0.0/24 private subnet on Azure/AWS, with a jump server running an OpenVPN server for secure VPN access from my local machine (see my previous posts for the VPN setup!). 💻
+Core Tech: Installed containerd and Kubernetes tools (Kubeadm, Kubelet, Kubectl) for a 2-node cluster (master + worker) on minimal VMs (2GB RAM, 2 CPUs).
+Smart Networking: Used a 10.0.0.0/24 subnet to avoid Calico’s 192.168.0.0/16 CIDR, ensuring glitch-free networking with Calico’s VXLAN mode.
+
+🔍𝐇𝐨𝐰 𝐈𝐭 𝐂𝐚𝐦𝐞 𝐓𝐨𝐠𝐞𝐭𝐡𝐞𝐫:
+1. Set up Ubuntu VMs in a 10.0.0.0/24 private subnet, with a jump server for OpenVPN.
+2. Installed containerd and Kubernetes tools, setting the stage for Kubeadm.
+3. Initialized the master with Kubeadm, deployed Calico, and joined the worker node.
+5. Checked with kubectl get nodes and kubectl get pods -A to confirm all’s good.
+
+💡𝐏𝐫𝐨 𝐓𝐢𝐩𝐬:
+Save cash with spot instances or reserved VMs.
+Secure the subnet with tight security groups and VPN-only access.
+Add Prometheus for lightweight cluster monitoring.
+
+
 ## Required Ports
 
 ### Control Plane Node (Master)
